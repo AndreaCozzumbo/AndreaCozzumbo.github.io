@@ -1,0 +1,56 @@
+---
+---
+{% comment %}
+  Local override of al_folio_core's bib.liquid: one publication.
+  Fields `category`, `citations`, `inspirehep_id`, `abbr` come from
+  scripts/update_publications.py.
+{% endcomment %}
+<div class="pub-item" id="{{ entry.key }}">
+  <div class="pub-title">{{ entry.title | remove: '\ensuremath' }}</div>
+  <div class="pub-authors">
+    {%- if entry.collaboration -%}
+      {{ entry.collaboration | replace: 'VIRGO', 'Virgo' }} Collaboration{% if entry.collaboration contains ',' %}s{% endif %}:
+    {% endif -%}
+    {%- for author in entry.author_array -%}
+      {%- if author.last == 'others' -%}
+        {{ ' ' }}<em>et al.</em>
+      {%- else -%}
+        {%- unless forloop.first -%}, {% endunless -%}
+        {%- if site.scholar.last_name contains author.last -%}
+          <strong>{{ author.first }} {{ author.last }}</strong>
+        {%- else -%}
+          {{ author.first }} {% if author.prefix %}{{ author.prefix }} {% endif %}{{ author.last }}
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+  <div class="pub-journal">
+    {%- if entry.journal -%}
+      {{ entry.journal }}{% if entry.volume %} {{ entry.volume }}{% endif %}{% if entry.pages %}, {{ entry.pages }}{% endif %} ({{ entry.year }})
+    {%- elsif entry.eprint -%}
+      arXiv:{{ entry.eprint }} ({{ entry.year }})
+    {%- else -%}
+      {{ entry.year }}
+    {%- endif -%}
+  </div>
+  <div class="pub-actions">
+    {% if entry.abbr %}
+      {% assign venue = site.data.venues[entry.abbr] %}
+      <span class="pub-badge"{% if venue.color %} style="background-color:{{ venue.color }}"{% endif %}>{{ entry.abbr }}</span>
+    {% endif %}
+    {% if entry.eprint %}<a class="pub-btn" href="https://arxiv.org/abs/{{ entry.eprint }}">arXiv</a>{% endif %}
+    {% if entry.doi %}<a class="pub-btn" href="https://doi.org/{{ entry.doi }}">DOI</a>{% endif %}
+    {%- comment -%} line breaks become ␤, or the HTML minifier would remove them; copy-bibtex.js restores them {%- endcomment -%}
+    {%- assign bibtex = entry.bibtex | hideCustomBibtex | escape | newline_to_br | strip_newlines | replace: '<br />', '␤' %}
+    <button type="button" class="pub-btn pub-btn-bib" data-bibtex="{{ bibtex }}">BibTeX</button>
+    {% if entry.inspirehep_id %}
+      <a class="pub-cites" href="https://inspirehep.net/literature/{{ entry.inspirehep_id }}" title="Citations on INSPIRE">
+        {%- if entry.citations and entry.citations != '0' -%}
+          {{ entry.citations }} citation{% if entry.citations != '1' %}s{% endif %}
+        {%- else -%}
+          INSPIRE
+        {%- endif -%}
+      </a>
+    {% endif %}
+  </div>
+</div>

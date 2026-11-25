@@ -1,0 +1,108 @@
+# Talks: used by /talks/, /cv/ and the PDF. Sorted by `date` automatically.
+# type: Conference or Seminar (colours in _data/venues.yml).
+# kind: "invited talk" / "contributed talk" (conferences only).
+# title and url are optional for conferences.
+
+- type: Conference
+  event: "Korea–Italy Workshop"
+  location: "L'Aquila, Italy"
+  kind: "invited talk"
+  url: "https://indico.kgwg.org/event/158/program"
+  date: 2026-10-26
+  dates: "Oct 26–28 2026"
+
+- type: Conference
+  event: "Exploring New Frontiers in Cosmology"
+  location: "Firenze, Italy"
+  kind: "contributed talk"
+  url: "https://indico.in2p3.fr/event/39253/contributions/176133/"
+  date: 2026-07-20
+  dates: "Jul 20–25 2026"
+
+- type: Conference
+  event: "UniVersum VII"
+  location: "Napoli, Italy"
+  kind: "contributed talk"
+  url: "https://universum.to.infn.it"
+  date: 2026-05-06
+  dates: "May 06–08 2026"
+
+- type: Conference
+  event: "PONT 2026"
+  location: "Avignon, France"
+  kind: "contributed talk"
+  url: "https://indico.cern.ch/event/1556583/contributions/7016859/"
+  date: 2026-04-27
+  dates: "Apr 27–30 2026"
+
+- type: Conference
+  event: "CosmoVerse@Istanbul 2025"
+  location: "Istanbul, Turkey"
+  kind: "contributed talk"
+  url: "https://cosmoversetensions.eu/event/cosmoverseistanbul-2025/"
+  date: 2025-06-24
+  dates: "Jun 24–26 2025"
+
+- type: Conference
+  event: "XV ET Symposium"
+  location: "Bologna, Italy"
+  kind: "contributed talk"
+  url: "https://indico.ego-gw.it/event/819/contributions/8028/"
+  date: 2025-05-26
+  dates: "May 26–30 2025"
+
+- type: Conference
+  event: "1st TEONGRAV international workshop"
+  location: "Roma, Italy"
+  kind: "contributed talk"
+  url: "https://agenda.infn.it/event/39201/contributions/236387/"
+  date: 2024-09-16
+  dates: "Sep 16–20 2024"
+
+- type: Conference
+  event: "ModIC2024 workshop"
+  location: "Trieste, Italy"
+  kind: "invited talk"
+  url: "https://indico.gssi.it/event/606/contributions/1910/"
+  date: 2024-05-11
+  dates: "May 11–18 2024"
+
+- type: Conference
+  event: "XIV ET Symposium"
+  location: "Maastricht, Netherlands"
+  kind: "contributed talk"
+  url: "https://indico.ego-gw.it/event/710/contributions/6416/"
+  date: 2024-05-06
+  dates: "May 06–10 2024"
+
+- type: Conference
+  event: "LAUTARO meeting"
+  location: "Milano, Italy"
+  kind: "contributed talk"
+  url: "https://davidegerosa.com/lautaro/"
+  date: 2024-04-17
+  dates: "Apr 17–19 2024"
+
+- type: Seminar
+  title: "A short blanket for cosmology: linking tensions across the Early and Late universe"
+  location: "Prague, Czech Republic"
+  date: 2025-11-26
+  dates: "Nov 26 2025"
+
+- type: Seminar
+  title: "A short blanket for cosmology: linking tensions across the Early and Late universe"
+  location: "Cagliari, Italy"
+  date: 2025-11-05
+  dates: "Nov 05 2025"
+
+- type: Seminar
+  title: "Multi-messenger cosmology probing the cosmic acceleration and nature of gravity with GWs and GRBs"
+  location: "Cagliari, Italy"
+  date: 2025-05-21
+  dates: "May 21 2025"
+
+- type: Seminar
+  title: "Model-independent cosmology with 3G GW detectors and synergies with complementary probes"
+  location: "Cagliari, Italy"
+  date: 2024-04-29
+  dates: "Apr 29 2024"

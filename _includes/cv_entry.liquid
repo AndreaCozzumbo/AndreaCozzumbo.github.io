@@ -1,0 +1,28 @@
+{%- comment -%}
+  One row of /cv/, /talks/, /theses/: badge and date on the left, text on the right.
+  Parameters: badge, badge2, dates, title, url, sub, note, pdf
+{%- endcomment -%}
+<li class="cv-item">
+  <div class="cv-side">
+    {%- if include.badge -%}
+      {%- assign v = site.data.venues[include.badge] -%}
+      <span class="pub-badge"{% if v.color %} style="background-color:{{ v.color }}"{% endif %}>{{ include.badge }}</span>
+    {%- endif -%}
+    {%- if include.badge2 -%}
+      {%- assign v = site.data.venues[include.badge2] -%}
+      <span class="pub-badge"{% if v.color %} style="background-color:{{ v.color }}"{% endif %}>{{ include.badge2 }}</span>
+    {%- endif -%}
+    <span class="cv-dates">{{ include.dates }}</span>
+  </div>
+  <div class="cv-main">
+    <div class="pub-title">
+      {%- if include.url -%}<a href="{{ include.url }}">{{ include.title }}</a>{%- else -%}{{ include.title }}{%- endif -%}
+    </div>
+    {%- if include.sub and include.sub != '' -%}<div class="pub-authors">{{ include.sub }}</div>{%- endif -%}
+    {%- if include.note and include.note != '' -%}<div class="cv-note">{{ include.note }}</div>{%- endif -%}
+    {%- if include.pdf -%}
+      {%- if include.pdf contains '://' -%}{%- assign pdf_url = include.pdf -%}{%- else -%}{%- assign pdf_url = include.pdf | prepend: '/assets/pdf/' | relative_url -%}{%- endif -%}
+      <div class="pub-actions"><a class="pub-btn" href="{{ pdf_url }}">PDF</a></div>
+    {%- endif -%}
+  </div>
+</li>

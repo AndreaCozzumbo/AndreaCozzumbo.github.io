@@ -1,0 +1,59 @@
+name: Build site
+
+# Every push builds the site. Until it is public, the result is a private download ("site").
+# It is published on GitHub Pages ONLY if the repository variable PUBLISH_SITE is
+# "true" (Settings -> Secrets and variables -> Actions -> Variables).
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "docs/**"
+      - "README.md"
+      - "SETUP.md"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Build
+        env:
+          JEKYLL_ENV: production
+        run: |
+          sudo apt-get update && sudo apt-get install -y imagemagick
+          bundle exec jekyll build
+
+      - name: Remove unused CSS
+        run: |
+          npm install -g purgecss
+          purgecss -c purgecss.config.js
+
+      - name: Keep the built site as a download
+        if: vars.PUBLISH_SITE != 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: _site
+          retention-days: 2
+
+      - name: Publish
+        if: vars.PUBLISH_SITE == 'true'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: _site
+          single-commit: true

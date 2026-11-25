@@ -1,0 +1,16 @@
+{%- comment -%}
+  Photos of _data/photos.yml: uncropped, in columns, enlarged on click.
+  The enlarged view (PhotoSwipe) is enabled by `images: photoswipe: true` in the
+  page and binds to `.pswp-gallery a`.
+{%- endcomment -%}
+{%- for series in site.data.photos -%}
+{%- if series.title and series.title != '' -%}<h2 class="photo-series">{{ series.title }}</h2>{%- endif -%}
+<div class="photo-grid pswp-gallery">
+{%- for p in series.photos -%}
+{%- capture alt -%}{%- if p.alt and p.alt != '' -%}{{ p.alt }}{%- else -%}Photograph {{ forloop.index }}{%- endif -%}{%- endcapture -%}
+<a href="{{ '/assets/photos/' | append: p.file | append: '?v=' | append: p.id | relative_url }}" data-pswp-width="{{ p.width }}" data-pswp-height="{{ p.height }}" target="_blank" rel="noopener">
+<img src="{{ '/assets/photos/thumbs/' | append: p.file | append: '?v=' | append: p.id | relative_url }}" width="{{ p.width }}" height="{{ p.height }}" alt="{{ alt | escape }}" loading="lazy" decoding="async">
+</a>
+{%- endfor -%}
+</div>
+{%- endfor -%}

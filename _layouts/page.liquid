@@ -1,0 +1,21 @@
+---
+layout: default
+---
+{% comment %} Local override: the title is rendered by default.liquid. {% endcomment %}
+{% if page._styles %}
+  <style type="text/css">
+    {{ page._styles }}
+  </style>
+{% endif %}
+
+<div class="post">
+  {% if page.photo %}
+    <div class="intro-split">
+      <img src="{{ page.photo | prepend: '/assets/img/' | relative_url }}" alt="{{ page.photo_alt | escape }}">
+      <p class="page-intro">{{ page.description }}</p>
+    </div>
+  {% elsif page.description %}
+    <p class="page-intro">{{ page.description }}</p>
+  {% endif %}
+  <article>{{ content }}</article>
+</div>

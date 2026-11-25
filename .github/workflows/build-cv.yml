@@ -1,0 +1,67 @@
+name: Build CV
+
+# Rebuilds the PDFs in assets/pdf/ when the CV data, the talks or the publications change.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "_data/**"
+      - "!_data/photos.yml"
+      - "_bibliography/papers.bib"
+      - "cv-latex/**"
+      - "scripts/build_cv.py"
+      - ".github/workflows/build-cv.yml"
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  build-cv:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Write LaTeX from the data files
+        run: |
+          python3 -m pip install --quiet pyyaml
+          python3 scripts/build_cv.py
+
+      - name: Compile
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: |
+            cv.tex
+            publications.tex
+            cv_full.tex
+          working_directory: cv-latex
+
+      - name: Collect PDFs and LaTeX source
+        run: |
+          mkdir -p assets/pdf
+          cp cv-latex/cv.pdf assets/pdf/CV.pdf
+          cp cv-latex/publications.pdf assets/pdf/PubList.pdf
+          cp cv-latex/cv_full.pdf assets/pdf/CV_full.pdf
+          rm -f assets/pdf/cv_latex.zip
+          zip -r assets/pdf/cv_latex.zip cv-latex -i "*.tex" "*.md"
+
+      - name: Commit and redeploy if changed
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/pdf
+          if git diff --cached --quiet; then
+            echo "No change."
+          else
+            git commit -m "Rebuild CV and publication list"
+            git push
+            gh workflow run "Build site" --ref main
+          fi

@@ -1,0 +1,42 @@
+name: Update publications from INSPIRE
+
+on:
+  schedule:
+    - cron: "0 5 * * 1" # every Monday, 05:00 UTC
+  workflow_dispatch: # "Run workflow" button
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  update-bib:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Fetch publications
+        run: |
+          python3 -m pip install --quiet pyyaml
+          python3 scripts/update_publications.py
+
+      - name: Commit and rebuild if changed
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- _bibliography/papers.bib; then
+            echo "No change."
+          else
+            git add _bibliography/papers.bib
+            git commit -m "Update publications from INSPIRE"
+            git push
+            # commits made with GITHUB_TOKEN do not trigger other workflows;
+            # Build CV starts Build site when it is done
+            gh workflow run "Build CV" --ref main
+          fi

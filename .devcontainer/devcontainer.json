@@ -1,0 +1,15 @@
+// GitHub Codespaces: builds the site and shows it on port 8080, visible only to you.
+{
+  "name": "Website preview",
+  "image": "mcr.microsoft.com/devcontainers/ruby:1-3.3-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": { "version": "20" }
+  },
+  "forwardPorts": [8080],
+  "portsAttributes": {
+    "8080": { "label": "Website", "onAutoForward": "openBrowser" }
+  },
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+  "postAttachCommand": "bash .devcontainer/start.sh",
+  "remoteUser": "vscode"
+}

@@ -1,0 +1,5 @@
+# Corrections applied on top of INSPIRE by scripts/update_publications.py.
+# Key = arXiv number (in quotes), then the BibTeX fields to replace.
+
+"2607.19273":
+  title: "Calibration of the Advanced Virgo+ Gravitational Wave Detector and Reconstruction of the Detector Strain h(t) during the Observing Run O4"

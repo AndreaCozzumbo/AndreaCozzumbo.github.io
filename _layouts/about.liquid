@@ -1,0 +1,96 @@
+---
+layout: default
+---
+{% comment %}
+  Local override: home page = full-width photograph with name and contacts,
+  then the biography and the research topics (front matter of _pages/about.md)
+  in two halves divided by the vertical accent line.
+{% endcomment %}
+{% assign me = site.data.curriculum.profile %}
+<section class="hero hero-text-{{ page.hero_text | default: 'light' }}" style="background-image: url('{{ page.hero_image | prepend: '/assets/img/' | relative_url }}')">
+  <div class="hero-identity">
+    <div class="hero-bar"></div>
+    <div class="hero-text">
+      <h1>{{ site.first_name }} {{ site.last_name }}</h1>
+      <p class="hero-role">{{ page.role }}</p>
+      <p class="hero-affiliation"><a href="{{ page.affiliation_url }}">{{ page.affiliation }}</a></p>
+      <p class="hero-mail"><a href="mailto:{{ me.email }}">{{ me.email }}</a></p>
+      <div class="hero-links">
+        <a href="https://orcid.org/{{ me.orcid }}" aria-label="ORCID"><i class="fa-brands fa-orcid"></i></a>
+        <a href="https://inspirehep.net/authors/{{ site.data.socials.inspirehep_id }}" aria-label="INSPIRE"><i class="ai ai-inspire"></i></a>
+        <a href="https://github.com/{{ site.data.socials.github_username }}" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="{{ '/assets/pdf/CV.pdf' | relative_url }}" aria-label="Curriculum vitae (PDF)"><i class="ai ai-cv"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bio">
+  <header class="page-head">
+    <div class="page-head-line"></div>
+    <h2 class="page-head-title">{{ page.bio_title }}</h2>
+  </header>
+  <div class="bio-split">
+    <div class="bio-photo">
+      <img src="{{ page.photo | prepend: '/assets/img/' | relative_url }}" alt="{{ site.first_name }} {{ site.last_name }}">
+    </div>
+    <div class="bio-text">{{ content }}</div>
+  </div>
+</section>
+
+{% if page.research %}
+  <section class="research">
+    <header class="research-band" style="background-image: url('{{ page.research_image | prepend: '/assets/research/' | relative_url }}')">
+      <div class="research-band-line"></div>
+      <h2 class="research-band-title">{{ page.research_title }}</h2>
+    </header>
+    {% if page.research_credit %}<p class="research-band-credit">{{ page.research_credit }}</p>{% endif %}
+    {% for topic in page.research %}
+      <div class="topic">
+        <div class="topic-figure">
+          {% if topic.image %}
+            <img class="topic-image" src="{{ topic.image | prepend: '/assets/research/' | relative_url }}" alt="{{ topic.alt | escape }}" data-zoomable>
+            {% if topic.image_caption %}<div class="topic-caption">{{ topic.image_caption | markdownify }}</div>{% endif %}
+          {% endif %}
+          {% if topic.formula %}<div class="topic-formula">\[{{ topic.formula }}\]</div>{% endif %}
+          {% if topic.caption %}<div class="topic-caption">{{ topic.caption | markdownify }}</div>{% endif %}
+        </div>
+        <div class="topic-text">
+          <h3>{{ topic.title }}</h3>
+          {{ topic.text | markdownify }}
+          {% if topic.links %}
+            <p class="pub-actions">
+              {% for link in topic.links %}<a class="pub-btn" href="{{ link.url }}">{{ link.name }}</a>{% endfor %}
+            </p>
+          {% endif %}
+        </div>
+        {% if topic.media %}
+          <div class="topic-media">
+            {% for m in topic.media %}
+              {% assign src = m.file | prepend: '/assets/research/' | relative_url %}
+              <figure>
+                {% if m.poster %}
+                  <video class="plot" src="{{ src }}" poster="{{ m.poster | prepend: '/assets/research/' | relative_url }}" aria-label="{{ m.alt | escape }}" muted loop playsinline controls preload="none"></video>
+                {% else %}
+                  <img class="plot" src="{{ src }}" alt="{{ m.alt | escape }}" data-zoomable>
+                {% endif %}
+                {% if m.caption %}<figcaption class="topic-caption">{{ m.caption | markdownify }}</figcaption>{% endif %}
+              </figure>
+            {% endfor %}
+          </div>
+          {% if topic.media_caption %}<div class="topic-caption topic-media-caption">{{ topic.media_caption | markdownify }}</div>{% endif %}
+        {% endif %}
+      </div>
+    {% endfor %}
+  </section>
+  <script>
+    // Play a video while it is on screen, unless the visitor asked for less motion.
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const watcher = new IntersectionObserver(
+        (entries) => entries.forEach((e) => (e.isIntersecting ? e.target.play().catch(() => {}) : e.target.pause())),
+        { threshold: 0.4 }
+      );
+      document.querySelectorAll('.topic-media video').forEach((v) => watcher.observe(v));
+    }
+  </script>
+{% endif %}

@@ -1,0 +1,29 @@
+_site
+.bundle
+.DS_Store
+.idea
+.jekyll-cache
+.jekyll-metadata
+.ruby-version
+.sass-cache
+.tweet-cache
+.venv
+assets/libs/
+al-folio-upgrade-report.md
+node_modules/
+output/playwright/
+test-results/
+vendor
+
+# Python bytecode from bin/ helper scripts
+__pycache__/
+*.pyc
+
+# LaTeX written by scripts/build_cv.py, and LaTeX build files
+cv-latex/generated/
+cv-latex/*.aux
+cv-latex/*.fdb_latexmk
+cv-latex/*.fls
+cv-latex/*.log
+cv-latex/*.out
+cv-latex/*.pdf

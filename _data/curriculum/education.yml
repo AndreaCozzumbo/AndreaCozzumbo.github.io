@@ -1,0 +1,36 @@
+# Newest first. Used by /cv/, /theses/ and the PDF.
+# badge: PhD / MSc / BSc (colours in _data/venues.yml).  date: only for sorting.
+# pdf (optional): file name in assets/pdf/ or a full URL.
+
+- badge: PhD
+  degree: "Ph.D."
+  field: "Astroparticle Physics"
+  institution: "Gran Sasso Science Institute"
+  dates: "Nov 2022 – Nov 2026"
+  date: 2026-11-01
+  grade: ""
+  thesis_label: "Dissertation title"
+  thesis: "Multi-probe Strategies for Cosmological Tensions and Beyond-ΛCDM Physics"
+  supervisors: "Dr. Riccardo Murgia, Prof. Gor Oganesyan, Prof. Marica Branchesi"
+
+- badge: MSc
+  degree: "Master's degree"
+  field: "Physics of Fundamental Interactions"
+  institution: "Università degli Studi di Padova"
+  dates: "Oct 2019 – Dec 2021"
+  date: 2021-12-01
+  grade: "110/110 w.h."
+  thesis_label: "Thesis title"
+  thesis: "Reconstruction of the Stochastic Gravitational Wave Background signals with Einstein Telescope"
+  supervisors: "Prof. Nicola Bartolo, Dr. Angelo Ricciardone"
+
+- badge: BSc
+  degree: "Bachelor's degree"
+  field: "Physics Engineering"
+  institution: "Politecnico di Torino"
+  dates: "Oct 2016 – Sep 2019"
+  date: 2019-09-01
+  grade: "104/110"
+  thesis_label: "Thesis title"
+  thesis: "CPT Symmetry"
+  supervisors: "Prof. Andrea Lavagno"

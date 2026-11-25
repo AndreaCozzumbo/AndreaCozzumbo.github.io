@@ -1,0 +1,77 @@
+<!doctype html>
+{%- comment -%}
+  Local override. Differences from al_folio_core: the title block with the vertical
+  accent line is rendered here, full width, above the (optional) sidebar, and the
+  home page (layout: about) gets no centred container.
+{%- endcomment -%}
+{%- capture html_attributes -%}
+  {%- if site.plugins contains 'al_rtl' -%}
+    {%- include plugins/al_rtl_html_attrs.liquid -%}
+  {%- else -%}
+    lang="{{ site.lang }}"
+  {%- endif -%}
+{%- endcapture -%}
+<html {{ html_attributes }}>
+  <!-- Head -->
+  <head>
+    {% if page.redirect %}
+      {% if page.redirect == true %}
+        {% assign redirect = site.baseurl | append: '/' %}
+      {% elsif page.redirect contains '://' %}
+        {% assign redirect = page.redirect %}
+      {% else %}
+        {% assign redirect = page.redirect | relative_url %}
+      {% endif %}
+      <meta http-equiv="refresh" content="3; url={{ redirect }}">
+    {% endif %}
+    <script>
+      // Light unless the visitor chose otherwise with the menu button.
+      try {
+        if (!localStorage.getItem('theme')) localStorage.setItem('theme', 'light');
+      } catch (e) {}
+    </script>
+    {% include head.liquid %}
+  </head>
+
+  <!-- Body -->
+  <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
+    <!-- Header -->
+    {% include header.liquid %}
+
+    {% if page.layout == 'about' %}
+      <div class="home" role="main">{{ content }}</div>
+    {% else %}
+      {% if page.layout == 'page' %}
+        <header class="page-head">
+          <div class="page-head-line"></div>
+          <h1 class="page-head-title">{{ page.title }}</h1>
+        </header>
+      {% endif %}
+
+      <!-- Content -->
+      <div class="container page-body" role="main">
+        {% if page.toc and page.toc.sidebar %}
+          <div class="page-with-toc">
+            <nav
+              id="toc-sidebar"
+              class="toc toc-sidebar"
+              aria-label="Table of contents"
+              data-toc-collapse="{{ page.toc.collapse | default: 'expanded' }}"
+              data-toc-collapse-depth="{{ page.toc.collapse_depth | default: '' }}"
+            ></nav>
+            <div class="page-with-toc-main">{{ content }}</div>
+          </div>
+        {% else %}
+          {{ content }}
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <!-- Footer -->
+    {% include footer.liquid %}
+
+    <!-- JavaScripts -->
+    {% include scripts.liquid %}
+    <script defer src="{{ '/assets/js/copy-bibtex.js' | relative_url | bust_file_cache }}"></script>
+  </body>
+</html>

@@ -1,0 +1,398 @@
+# Photos of /photography/, written by scripts/prepare_photos.py.
+# You can add a description in alt: (read aloud to blind visitors); it is kept,
+# also when the photo is renamed (id identifies the original file).
+
+- title: BnW
+  photos:
+  - file: bnw/0035.jpg
+    id: p243dbb07fa
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: bnw/0034.jpg
+    id: p68c2031a6b
+    width: 2400
+    height: 1561
+    alt: ''
+  - file: bnw/0033.jpg
+    id: pdd6e31a681
+    width: 2400
+    height: 1537
+    alt: ''
+  - file: bnw/0032.jpg
+    id: pb5eea90c3c
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: bnw/0031.jpg
+    id: p3091300fb9
+    width: 2400
+    height: 1508
+    alt: ''
+  - file: bnw/0030.jpg
+    id: p48006a2df7
+    width: 2400
+    height: 1544
+    alt: ''
+  - file: bnw/0029.jpg
+    id: p69ab2742c3
+    width: 2400
+    height: 1598
+    alt: ''
+  - file: bnw/0028.jpg
+    id: p5644ed95df
+    width: 2251
+    height: 1387
+    alt: ''
+  - file: bnw/0027.jpg
+    id: pc159f94144
+    width: 2400
+    height: 1585
+    alt: ''
+  - file: bnw/0026.jpg
+    id: p1381df014c
+    width: 2400
+    height: 1577
+    alt: ''
+  - file: bnw/0025.jpg
+    id: p6df8c80353
+    width: 2400
+    height: 1526
+    alt: ''
+  - file: bnw/0024.jpg
+    id: p18d255db06
+    width: 2400
+    height: 1573
+    alt: ''
+  - file: bnw/0023.jpg
+    id: pc623549db9
+    width: 2400
+    height: 1578
+    alt: ''
+  - file: bnw/0022.jpg
+    id: p1e0a4f15e5
+    width: 2240
+    height: 1323
+    alt: ''
+  - file: bnw/0021.jpg
+    id: p5bba598b96
+    width: 2251
+    height: 1365
+    alt: ''
+  - file: bnw/0020.jpg
+    id: p6ecc8692e5
+    width: 2245
+    height: 1360
+    alt: ''
+  - file: bnw/0019.jpg
+    id: p2d54a30935
+    width: 2240
+    height: 1381
+    alt: ''
+  - file: bnw/0018.jpg
+    id: p1b614d5cd8
+    width: 2235
+    height: 1360
+    alt: ''
+  - file: bnw/0017.jpg
+    id: p9929b985eb
+    width: 2240
+    height: 1365
+    alt: ''
+  - file: bnw/0016.jpg
+    id: p8934352ebd
+    width: 2245
+    height: 1392
+    alt: ''
+  - file: bnw/0015.jpg
+    id: pf747f71262
+    width: 2176
+    height: 1387
+    alt: ''
+  - file: bnw/0014.jpg
+    id: p5d8bf4e8bb
+    width: 2400
+    height: 1423
+    alt: ''
+  - file: bnw/0013.jpg
+    id: p95954c05c7
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: bnw/0012.jpg
+    id: p09fbef9707
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: bnw/0011.jpg
+    id: pe2a1d7dd4f
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: bnw/0010.jpg
+    id: p6837bf7928
+    width: 2400
+    height: 1591
+    alt: ''
+  - file: bnw/0009.jpg
+    id: p8b48a59ea5
+    width: 2400
+    height: 1602
+    alt: ''
+  - file: bnw/0008.jpg
+    id: p1a78a84f87
+    width: 2240
+    height: 1413
+    alt: ''
+  - file: bnw/0007.jpg
+    id: pf90f0f211d
+    width: 2240
+    height: 1349
+    alt: ''
+  - file: bnw/0006.jpg
+    id: p3a8ed13479
+    width: 2400
+    height: 1591
+    alt: ''
+  - file: bnw/0005.jpg
+    id: p3ddd79f7a8
+    width: 2400
+    height: 1591
+    alt: ''
+  - file: bnw/0004.jpg
+    id: p3b8461d6bc
+    width: 2400
+    height: 1591
+    alt: ''
+  - file: bnw/0003.jpg
+    id: p0fa0abbffe
+    width: 2400
+    height: 1729
+    alt: ''
+  - file: bnw/0002.jpg
+    id: p9bf62e5573
+    width: 2400
+    height: 1591
+    alt: ''
+  - file: bnw/0001.jpg
+    id: p75cfb3d26c
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: bnw/0000.jpg
+    id: p03b84f84ea
+    width: 2400
+    height: 1600
+    alt: ''
+- title: Color
+  photos:
+  - file: color/0041.jpg
+    id: p659124b763
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0040.jpg
+    id: p3ec79514d9
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0039.jpg
+    id: p8841baf9d9
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0038.jpg
+    id: pbd19c73b2a
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0037.jpg
+    id: pa96fd4bf15
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0036.jpg
+    id: p79dc607a81
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0035.jpg
+    id: p28b9f5c9b3
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0034.jpg
+    id: p52a9ab7fac
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0033.jpg
+    id: pd3c9180952
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0032.jpg
+    id: p6eb8197de7
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0031.jpg
+    id: pa87a2a9ec8
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0030.jpg
+    id: p0adbd03d20
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0029.jpg
+    id: pa59ef65f5e
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0028.jpg
+    id: p91a1bbcf77
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0027.jpg
+    id: pff54a24511
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0026.jpg
+    id: p5e0b2e6759
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0025.jpg
+    id: pad530a97f0
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0024.jpg
+    id: p0ead5113c4
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0023.jpg
+    id: pf148ba73db
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0022.jpg
+    id: p23db40e8d7
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0021.jpg
+    id: pa29d40a2aa
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0020.jpg
+    id: p35fa4d6078
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0019.jpg
+    id: pde9152285e
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0018.jpg
+    id: pc2fedba8ff
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0017.jpg
+    id: pdebd74e1e7
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0016.jpg
+    id: p81d1f63855
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0015.jpg
+    id: p548bef9293
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0014.jpg
+    id: p53fbd5f87b
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0013.jpg
+    id: pcb9035aa70
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0012.jpg
+    id: pb9fb53d46e
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0011.jpg
+    id: p3838e7dd88
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0010.jpg
+    id: pef4eeb611a
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0009.jpg
+    id: p9e0505c15e
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0008.jpg
+    id: p58bb733881
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0007.jpg
+    id: p97997d4307
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0006.jpg
+    id: p0dd25ae913
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0005.jpg
+    id: p7eebb89605
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0004.jpg
+    id: p9777bbb813
+    width: 2400
+    height: 1600
+    alt: ''
+  - file: color/0003.jpg
+    id: p1f5fff44f8
+    width: 2400
+    height: 1552
+    alt: ''
+  - file: color/0002.jpg
+    id: p0bbbb852a5
+    width: 2400
+    height: 1570
+    alt: ''
+  - file: color/0001.jpg
+    id: p4fac6df099
+    width: 2400
+    height: 1531
+    alt: ''
+  - file: color/0000.jpg
+    id: p9863f2f293
+    width: 2400
+    height: 1549
+    alt: ''

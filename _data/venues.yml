@@ -1,0 +1,22 @@
+# Badge colours. Journals can also have a link.
+"JCAP":   { color: "#22577A", url: "https://iopscience.iop.org/journal/1475-7516" }
+"PRD":    { color: "#7A2E2E", url: "https://journals.aps.org/prd/" }
+"PRL":    { color: "#8A3A1F", url: "https://journals.aps.org/prl/" }
+"PRX":    { color: "#6B3E26", url: "https://journals.aps.org/prx/" }
+"ApJ":    { color: "#4A3B73", url: "https://iopscience.iop.org/journal/0004-637X" }
+"ApJL":   { color: "#5C4A8A", url: "https://iopscience.iop.org/journal/2041-8205" }
+"ApJS":   { color: "#3F3A6B", url: "https://iopscience.iop.org/journal/0067-0049" }
+"CQG":    { color: "#2F6B4F", url: "https://iopscience.iop.org/journal/0264-9381" }
+"PTRSA":  { color: "#6B2436", url: "https://royalsocietypublishing.org/journal/rsta" }
+
+"PhD":        { color: "#007985" }
+"MSc":        { color: "#22577A" }
+"BSc":        { color: "#4A5A6A" }
+"Conference": { color: "#22577A" }
+"Seminar":    { color: "#4A3B73" }
+"Invited":    { color: "#007985" }
+"Visit":      { color: "#2F6B4F" }
+"Work":       { color: "#4A5A6A" }
+"Outreach":   { color: "#8A3A1F" }
+"Thesis":     { color: "#4A3B73" }
+"LOC":        { color: "#22577A" }

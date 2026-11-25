@@ -1,0 +1,8 @@
+github_users:
+  - AndreaCozzumbo
+
+repo_description_lines_max: 2
+
+# Only public repos render. Add/remove as you like.
+github_repos:
+  - AndreaCozzumbo/phantom_hi_class

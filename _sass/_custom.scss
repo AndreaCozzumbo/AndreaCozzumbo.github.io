@@ -1,0 +1,1072 @@
+/*******************************************************************************
+ * Look of the site: slim dark menu, full-width photograph on the home page,
+ * white pages with a vertical accent line, condensed titles.
+ * To change the colours edit the variables below.
+ ******************************************************************************/
+
+:root {
+  --accent: #0096a1; // bars and lines (same colour as the CV)
+  --accent-text: #007985; // links and text: darker, readable on white
+  --bar-bg: rgba(34, 38, 42, 0.96);
+  --heading-font: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --body-font: "Barlow", system-ui, sans-serif;
+  --nav-height: 46px;
+  --title-gap: 1.7rem;
+  --global-theme-color: #007985;
+  --global-hover-color: #007985;
+  --global-text-color: #1c1f22;
+  --global-text-color-light: #5a6168;
+}
+
+html[data-theme="dark"] {
+  --accent: #12a5b0;
+  --accent-text: #45c4cd;
+  --global-bg-color: #17191c;
+  --global-card-bg-color: #17191c;
+  --global-text-color: #e6e8ea;
+  --global-text-color-light: #a3abb3;
+  --global-theme-color: #45c4cd;
+  --global-hover-color: #45c4cd;
+}
+
+body {
+  font-family: var(--body-font);
+  font-weight: 400;
+  line-height: 1.6;
+  background: var(--global-bg-color);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body.fixed-top-nav {
+  padding-top: var(--nav-height);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--heading-font);
+  font-weight: 500;
+}
+
+/* ------------------------------------------------------------------- menu */
+
+.navbar,
+.navbar.navbar-light {
+  min-height: var(--nav-height);
+  padding: 0;
+  background: var(--bar-bg);
+  border: 0;
+  opacity: 1;
+
+  .navbar-brand {
+    display: none;
+    color: #fff;
+    font-family: var(--heading-font);
+    font-size: 1.25rem;
+    letter-spacing: 0.04em;
+  }
+
+  .navbar-collapse-main {
+    justify-content: center;
+  }
+
+  .navbar-menu-list {
+    margin: 0 auto;
+    align-items: center;
+    gap: 0.9rem;
+  }
+
+  .navbar-nav .nav-item .nav-link,
+  #search-toggle,
+  #search-toggle .nav-link,
+  #light-toggle {
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .navbar-nav .nav-item > a.nav-link {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0.5rem;
+      right: 0.5rem;
+      bottom: 0.2rem;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.2s ease;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+    }
+  }
+
+  .navbar-nav .nav-item.active > .nav-link {
+    color: #fff;
+    font-weight: 400;
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+
+  .navbar-toggler .icon-bar {
+    background-color: #fff;
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .navbar,
+  .navbar.navbar-light {
+    .navbar-brand {
+      display: block;
+      padding-left: 1.5rem;
+    }
+
+    .navbar-menu-list {
+      gap: 0;
+    }
+  }
+}
+
+/* ------------------------------------------------- title with accent line */
+
+.page-head {
+  position: relative;
+  width: 100%;
+  height: 170px;
+  margin: 0 0 3.5rem;
+}
+
+.page-head-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 5px;
+  height: 100%;
+  background: var(--accent);
+  transform: translateX(-50%);
+}
+
+.page-head-title {
+  position: absolute;
+  bottom: -0.15em;
+  left: calc(50% + var(--title-gap));
+  right: 1rem;
+  margin: 0;
+  font-size: 2.9rem;
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+@media (max-width: 767.98px) {
+  .page-head {
+    height: 110px;
+    margin-bottom: 2.25rem;
+  }
+
+  .page-head-line {
+    left: 1.5rem;
+  }
+
+  .page-head-title {
+    left: 2.8rem;
+    font-size: 2.2rem;
+  }
+}
+
+.page-body {
+  flex: 1 0 auto;
+  width: 100%;
+  padding: 0 1.5rem 5rem;
+}
+
+.page-intro,
+.pubs-top p {
+  max-width: 46rem;
+  color: var(--global-text-color-light);
+  font-size: 1.1rem;
+}
+
+// description with a photo: two halves, as on the home page
+.intro-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  img {
+    justify-self: end;
+    width: calc(min(100%, 340px) - 2.5rem);
+    height: auto;
+    margin: -11rem 2.5rem 1rem 0; // up beside the title
+  }
+
+  .page-intro {
+    padding-left: var(--title-gap);
+  }
+
+  img + .page-intro {
+    margin: 0;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .intro-split {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+
+    img {
+      justify-self: start;
+      width: min(100%, 300px);
+      margin: 0;
+    }
+
+    .page-intro {
+      padding-left: 0;
+    }
+  }
+}
+
+.icon-links {
+  color: inherit;
+  white-space: nowrap;
+
+  .icon-link:last-child {
+    margin-right: 0;
+  }
+}
+
+.icon-link {
+  margin: 0 0.15rem;
+  color: var(--accent-text);
+  font-size: 1.45rem;
+  line-height: 1;
+  vertical-align: -0.12em;
+
+  &:hover {
+    color: var(--global-text-color);
+    text-decoration: none;
+  }
+}
+
+/* ------------------------------------------------------------------- home */
+
+.hero {
+  position: relative;
+  --hero-color: #fff;
+  min-height: max(82vh, 48vw);
+  background: #11151c center top / cover no-repeat;
+}
+
+.hero-text-dark {
+  --hero-color: #14171a;
+}
+
+.hero-text-light::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, rgba(8, 11, 16, 0.12) 35%, rgba(8, 11, 16, 0.5) 100%);
+}
+
+.hero-identity {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 1.5rem;
+  display: flex;
+  gap: var(--title-gap);
+}
+
+.hero-bar {
+  flex: 0 0 5px;
+  height: 225px;
+  margin-left: -2.5px;
+  background: var(--accent);
+}
+
+.hero-text {
+  padding-top: 85px;
+  color: var(--hero-color);
+
+  h1 {
+    margin: 0 0 0.35rem;
+    color: var(--hero-color);
+    font-size: clamp(3rem, 6vw, 5.4rem);
+    font-weight: 500;
+    line-height: 0.98;
+    letter-spacing: 0.01em;
+  }
+
+  p {
+    margin: 0;
+    color: var(--hero-color);
+  }
+
+  a {
+    color: var(--hero-color);
+  }
+}
+
+// tablets: keep the text clear of the subject of the photograph
+@media (min-width: 768px) and (max-width: 1200px) {
+  .hero {
+    min-height: 92vh;
+    background-position: 85% top;
+  }
+
+  .hero-text {
+    padding-top: 40px;
+  }
+
+  .hero-bar {
+    height: 180px;
+  }
+}
+
+.hero-role {
+  font-family: var(--heading-font);
+  font-size: 2.1rem;
+  line-height: 1.2;
+}
+
+.hero-affiliation {
+  padding-top: 1.6rem;
+  font-family: var(--heading-font);
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+
+.hero-links {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 1.4rem;
+  font-size: 2rem;
+  line-height: 1;
+
+  a:hover {
+    color: var(--accent);
+    text-decoration: none;
+  }
+}
+
+.bio {
+  padding-bottom: 6rem;
+}
+
+.bio-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.bio-photo {
+  padding: 0.4rem 2.5rem 0 1.5rem;
+  text-align: right;
+
+  img {
+    width: min(100%, 340px);
+    height: auto;
+  }
+}
+
+.bio-text {
+  max-width: 620px;
+  padding: 0 1.5rem 0 calc(var(--title-gap));
+  font-size: 1.05rem;
+}
+
+.bio-text ul {
+  padding-left: 1.1rem;
+}
+
+.bio-text li {
+  margin-bottom: 0.6rem;
+}
+
+@media (max-width: 767.98px) {
+  .hero {
+    min-height: 92vh;
+    background-position: 80% top;
+  }
+
+  .hero-identity {
+    left: 1.5rem;
+  }
+
+  .hero-bar {
+    height: 200px;
+    margin-left: 0;
+  }
+
+  .hero-text {
+    padding-top: 70px;
+  }
+
+  .bio-split {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .bio-photo {
+    padding: 0 1.5rem;
+    text-align: left;
+  }
+
+  .bio-text {
+    padding: 0 1.5rem;
+  }
+}
+
+/* --------------------------------------------------- home: research topics */
+
+// title over a photograph, from edge to edge
+.research-band {
+  position: relative;
+  height: 270px;
+  background: #22577a center / cover no-repeat;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(9, 16, 28, 0.08) 30%, rgba(9, 16, 28, 0.5) 60%);
+  }
+}
+
+.research-band-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 5px;
+  height: 100%;
+  background: #fff;
+  transform: translateX(-50%);
+}
+
+.research-band-title {
+  position: absolute;
+  top: 50%;
+  left: calc(50% + var(--title-gap));
+  right: 1rem;
+  margin: 0;
+  color: #fff;
+  font-size: 3.4rem;
+  line-height: 1.02;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  transform: translateY(-50%);
+}
+
+.research-band-credit {
+  margin: 0.4rem 1.5rem 0;
+  color: var(--global-text-color-light);
+  font-size: 0.75rem;
+  text-align: right;
+}
+
+.topic {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  row-gap: 2.5rem;
+  align-items: center;
+  padding: 6rem 0;
+
+  // every other topic on a tinted background, from edge to edge
+  &:nth-of-type(even) {
+    background: color-mix(in srgb, #007985 10%, var(--global-bg-color));
+  }
+}
+
+.topic-figure {
+  justify-self: end;
+  width: min(100%, 540px);
+  padding: 0 2.5rem 0 1.5rem;
+  text-align: center;
+}
+
+.topic-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.topic-formula {
+  overflow-x: auto;
+  overflow-y: hidden;
+  font-size: 1.05rem;
+}
+
+.topic-caption {
+  color: var(--global-text-color-light);
+  font-size: 0.9rem;
+  line-height: 1.45;
+  text-align: center;
+  text-wrap: balance;
+
+  p {
+    margin: 0;
+  }
+}
+
+.topic-text {
+  max-width: 620px;
+  padding: 0 1.5rem 0 var(--title-gap);
+  font-size: 1.05rem;
+
+  h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.8rem;
+    line-height: 1.1;
+  }
+}
+
+// plots and videos below a topic: one, or two side by side
+.topic-media {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+  width: min(100%, 1080px);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+
+  figure {
+    margin: 0;
+  }
+
+  video {
+    aspect-ratio: 1920 / 1180;
+  }
+
+  .plot {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 0.6rem;
+    background: #fff;
+  }
+}
+
+.topic-media-caption {
+  grid-column: 1 / -1;
+  margin-top: -1.25rem;
+  padding: 0 1.5rem;
+}
+
+@media (max-width: 991.98px) {
+  .topic-figure {
+    padding-right: 1.75rem;
+  }
+
+  .topic-formula {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .research-band {
+    height: 190px;
+  }
+
+  .research-band::before {
+    background: rgba(9, 16, 28, 0.4);
+  }
+
+  .research-band-line {
+    left: 1.5rem;
+  }
+
+  .research-band-title {
+    left: 2.8rem;
+    font-size: 2.4rem;
+  }
+
+  .topic {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 1.5rem;
+    padding: 3.5rem 0;
+  }
+
+  .topic-figure {
+    grid-row: 2;
+    justify-self: stretch;
+    width: 100%;
+    padding: 0 1.5rem;
+  }
+
+  .topic-formula {
+    font-size: 0.9rem;
+  }
+
+  .topic-text {
+    padding: 0 1.5rem;
+  }
+
+  .topic-media {
+    grid-auto-flow: row;
+  }
+
+  .topic-media-caption {
+    margin-top: 0;
+  }
+}
+
+/* ----------------------------------------------------------- publications */
+
+.pubs-top {
+  margin-bottom: 1rem;
+  color: var(--global-text-color-light);
+
+  .bibsearch-form-input {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    margin: 1rem 0 0;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--global-divider-color);
+    border-radius: 0;
+    background: transparent;
+    color: var(--global-text-color);
+    font: inherit;
+
+    &:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 0;
+    }
+  }
+}
+
+// coloured band that opens each section of the publications and CV pages
+.pub-section,
+.cv-h2 {
+  margin: 3rem 0 0.75rem;
+  padding: 0.55rem 1rem;
+  background: var(--band, #007985);
+  color: #fff;
+  font-size: 2.1rem;
+  line-height: 1.05;
+  text-align: left;
+}
+
+.page-with-toc-main > .post > article > .cv-downloads + .cv-h2,
+.pub-group:first-child .pub-section {
+  margin-top: 1.5rem;
+}
+
+.year,
+.publications h2.bibliography {
+  margin: 2.25rem 0 0.25rem;
+  padding: 0;
+  border: 0;
+  color: var(--accent-text);
+  font-size: 2rem;
+  line-height: 1.1;
+  text-align: left;
+}
+
+#first-author {
+  --band: #007985;
+}
+
+#co-author {
+  --band: #22577a;
+}
+
+#collaboration-papers {
+  --band: #4a3b73;
+}
+
+// the search box hides entries one by one: hide a section once it is empty
+.pub-group:not(:has(li:not(.unloaded))) {
+  display: none;
+}
+
+.publications {
+  margin-top: 0;
+}
+
+.publications ol.bibliography,
+.cv-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.publications ol.bibliography li {
+  margin: 0;
+}
+
+.pub-item,
+.cv-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--global-divider-color);
+}
+
+.pub-title {
+  font-family: var(--heading-font);
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.2;
+  text-wrap: pretty;
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+
+  a:hover {
+    color: var(--accent-text);
+  }
+}
+
+.pub-authors {
+  margin-top: 0.25rem;
+}
+
+.pub-journal {
+  margin-top: 0.1rem;
+  color: var(--global-text-color-light);
+  font-style: italic;
+}
+
+.pub-actions,
+.cv-downloads {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.55rem;
+}
+
+.pub-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 78px;
+  min-height: 30px;
+  padding: 0 0.8rem;
+  border: 1px solid var(--accent-text);
+  background: transparent;
+  color: var(--accent-text);
+  font-family: var(--body-font);
+  font-size: 0.85rem;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--accent-text);
+    color: var(--global-bg-color);
+    text-decoration: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+.pub-btn-bib {
+  border-color: var(--global-text-color);
+  color: var(--global-text-color);
+
+  &:hover {
+    background: var(--global-text-color);
+  }
+}
+
+.pub-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 62px;
+  min-height: 30px;
+  padding: 0 0.6rem;
+  background: var(--global-text-color-light);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.pub-cites {
+  margin-left: 0.3rem;
+  color: var(--global-text-color-light);
+  font-size: 0.85rem;
+}
+
+/* ------------------------------------------------------------- cv, talks */
+
+.page-with-toc {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 3rem;
+}
+
+.toc-sidebar {
+  position: sticky;
+  top: calc(var(--nav-height) + 1.5rem);
+  align-self: start;
+  max-height: calc(100vh - var(--nav-height) - 3rem);
+  overflow-y: auto;
+  font-size: 0.9rem;
+}
+
+.cv-item {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: 1.25rem;
+}
+
+.cv-side {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-content: flex-start;
+
+  .pub-badge {
+    min-height: 24px;
+  }
+}
+
+.cv-dates {
+  flex-basis: 100%;
+  color: var(--accent-text);
+  font-size: 0.95rem;
+}
+
+.cv-note {
+  margin-top: 0.2rem;
+  color: var(--global-text-color-light);
+}
+
+.cv-skills {
+  padding: 0;
+  list-style: none;
+
+  li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--global-divider-color);
+  }
+
+  strong {
+    display: inline-block;
+    min-width: 120px;
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .page-with-toc {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .toc-sidebar {
+    display: none;
+  }
+
+  .cv-item {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.5rem;
+  }
+}
+
+/* ----------------------------------------------------------------- footer */
+
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem 2rem;
+  margin-top: auto;
+  padding: 0.9rem 1.5rem;
+  background: var(--bar-bg);
+  color: #fff;
+  font-size: 0.8rem;
+
+  span,
+  a {
+    color: #fff;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+/* ------------------------------------------------------------ photography */
+
+// gallery with arrows, from edge to edge of the window
+.photo-strip {
+  --strip-height: min(58vh, 470px);
+  position: relative;
+  width: 100vw;
+  margin: 2rem calc(50% - 50vw) 4rem;
+}
+
+.photo-strip-track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  > * {
+    flex: none;
+    width: calc(var(--strip-height) * var(--ratio)); // all of the same height, uncropped
+    max-width: calc(100vw - 2rem);
+    scroll-snap-align: center;
+    cursor: zoom-in;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: var(--ratio);
+    background: rgba(127, 127, 127, 0.15); // while it loads
+  }
+
+  a:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: -3px;
+  }
+}
+
+.photo-strip-arrow {
+  position: absolute;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(34, 38, 42, 0.7);
+  color: #fff;
+  font-size: 1.25rem;
+  transform: translateY(-50%);
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: #007985;
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+  }
+}
+
+.photo-strip-prev {
+  left: 2rem;
+}
+
+.photo-strip-next {
+  right: 2rem;
+}
+
+// the strip is as wide as the window: no horizontal scroll of the page
+body:has(.photo-strip) {
+  overflow-x: clip;
+}
+
+@media (max-width: 767.98px) {
+  .photo-strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem;
+  }
+
+  .photo-strip-track {
+    flex: 0 0 100%;
+    gap: 12px;
+  }
+
+  // arrows under the photos
+  .photo-strip-arrow {
+    position: static;
+    width: 46px;
+    height: 46px;
+    background: rgba(34, 38, 42, 0.9);
+    transform: none;
+  }
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); // 2 or 4 for bigger or smaller photos
+  gap: 20px;
+  align-items: center;
+  margin: 2rem 0 3rem;
+
+  a {
+    display: block;
+    cursor: zoom-in;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: opacity 0.2s ease;
+  }
+
+  a:hover img {
+    opacity: 0.85;
+  }
+
+  a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+}
+
+// enlarged photo: opaque dark background
+.pswp--open {
+  background: #0b0c0e;
+}
+
+.photo-series {
+  margin: 3rem 0 0;
+  font-size: 2.1rem;
+}
+
+@media (max-width: 991.98px) {
+  .photo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .photo-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

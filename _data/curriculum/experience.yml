@@ -1,0 +1,28 @@
+# "Working and visit experience". Newest first, shown in this order.
+# badge: Visit / Work.  url is optional.
+
+- badge: Visit
+  title: "Visit to LUPM in Montpellier, France"
+  dates: "Mar 2026 – Apr 2026"
+  description: "Visiting the group of Vivian Poulin at the Laboratoire Univers et Particules de Montpellier."
+
+- badge: Visit
+  title: "Visit to RWTH in Aachen, Germany"
+  dates: "Mar 2025 – Apr 2025"
+  description: "Visiting the TTK group of Julien Lesgourgues at RWTH Aachen University."
+
+- badge: Visit
+  title: "Visit to JHU in Baltimore, USA"
+  dates: "Oct 2024 – Nov 2024"
+  description: "Visiting the group of Emanuele Berti at Johns Hopkins University in Baltimore, funded by the MAECI program."
+
+- badge: Work
+  title: "PRISMA project grant at INAF Astrophysical Observatory of Torino (OAT), Italy"
+  url: "http://www.prisma.inaf.it"
+  dates: "Feb 2022 – Nov 2022"
+  description: "Engaged in the calibration of PRISMA cameras and conducted thorough analysis of photometric and astrometric seasonal patterns."
+
+- badge: Work
+  title: "Internship at the INFN Legnaro National Laboratories in Padova, Italy"
+  dates: "Nov 2020 – Jan 2021"
+  description: "Characterization and test of EUCLIDES silicon detectors in a d+d reaction with a 3 MeV pulsed beam at the CN accelerator."

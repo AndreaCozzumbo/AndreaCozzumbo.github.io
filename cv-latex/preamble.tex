@@ -1,0 +1,29 @@
+% Shared by cv.tex, publications.tex and cv_full.tex (moderncv "banking" style).
+\documentclass[11pt,a4paper,roman,english]{moderncv}
+\moderncvstyle{banking}
+\moderncvcolor{blue}
+\usepackage[a4paper,top=1.2cm,bottom=1.4cm,left=1.5cm,right=1.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{textcomp}
+\usepackage{amsmath}
+
+\definecolor{myCustomColor}{RGB}{0, 150, 161}
+
+% One line with a right-aligned date; the text wraps before reaching the date.
+\newcommand{\datedline}[2]{%
+  {\noindent\begin{minipage}[t]{0.80\textwidth}\raggedright #1\strut\end{minipage}\hfill
+   \begin{minipage}[t]{0.19\textwidth}\raggedleft\textit{#2}\strut\end{minipage}\par}\vspace{0.1ex}}
+
+% Title + date, then a description underneath.
+\newcommand{\cvblock}[3]{\datedline{\textbf{#1}}{#2}%
+  {\noindent\small #3\par}\vspace{0.6ex}}
+
+% Field + date, degree and institution, thesis.
+\newcommand{\cvdegree}[5]{\datedline{\textbf{#4}}{#2}%
+  {\noindent\textit{#3, #1}\par\noindent\small #5\par}\vspace{0.8ex}}
+
+\newcommand{\cvpub}[1]{{\noindent\raggedright\small #1\par}\vspace{1.2ex}}
+
+\input{generated/header.tex}

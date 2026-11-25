@@ -1,0 +1,4 @@
+# Links co-author names in the publication list to their pages. Key = lowercase last name.
+# "tsujikawa":
+#   - firstname: ["Shinji", "S."]
+#     url: https://...

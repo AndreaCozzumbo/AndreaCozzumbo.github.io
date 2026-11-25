@@ -1,0 +1,19 @@
+# "Technical skills" and "Languages".
+technical:
+  - label: "Programming"
+    levels:
+      - "Python, GitHub (advanced)"
+      - "C/C++, Mathematica, IDL (intermediate)"
+      - "VHDL, HTML, JavaScript, CSS (beginner)"
+  - label: "Other"
+    levels:
+      - "LaTeX, Office, Matlab (advanced)"
+      - "CAD modeling (AutoCAD, Blender, Ultimaker Cura), Adobe Suite (Photoshop, InDesign) (intermediate)"
+  - label: "O.S."
+    levels:
+      - "Linux, MacOS (advanced)"
+
+languages:
+  - { language: "Italian", level: "Native", note: "" }
+  - { language: "English", level: "Proficient", note: "IELTS Certificate, 6.5 (Dec 2016)" }
+  - { language: "Spanish", level: "Basic", note: "" }
