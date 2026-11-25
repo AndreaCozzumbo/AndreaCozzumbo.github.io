@@ -1,0 +1,1 @@
+document.addEventListener("click",async t=>{const e=t.target.closest("[data-bibtex]");if(!e)return;const n=e.textContent,a=e.dataset.bibtex.replace(/\s*\u2424\s*/g,"\n  ").replace(/\s*\}\s*$/,"\n}\n");try{await navigator.clipboard.writeText(a),e.textContent="Copied"}catch(t){return void window.prompt("Copy the BibTeX entry:",a)}setTimeout(()=>{e.textContent=n},1500)});
