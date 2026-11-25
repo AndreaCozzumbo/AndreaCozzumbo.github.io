@@ -123,7 +123,7 @@ def header():
         rf"\name{{{name['first_name']}}}{{{name['last_name']}}}",
         rf"\email{{{p['email']}}}",
         rf"\extrainfo{{\href{{https://orcid.org/{p['orcid']}}}{{ORCID {p['orcid']}}}"
-        rf"~~~\href{{{url(p['webpage'])}}}{{{tex(p['first_name'])} {tex(p['last_name'])} - Webpage}}}}",
+        rf"~~~\href{{{url(p['webpage'])}}}{{{tex(p['webpage'].split('://')[-1])}}}}}",
     ]) + "\n"
 
 
